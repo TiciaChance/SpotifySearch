@@ -13,9 +13,11 @@ import Alamofire
 
 class TableVC: UITableViewController {
     
-    var searchURL = "https://api.spotify.com/v1/search?q=Solange&type=track&offset=20"
+    let searchURL = "https://api.spotify.com/v1/search?q=Solange&type=track&offset=20"
+    var trackTitle = [String]()
     
-    typealias JSONStandard = [String : Any]
+    typealias JSONStandard = [String : AnyObject]
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,16 +30,32 @@ class TableVC: UITableViewController {
         Alamofire.request(url).responseJSON {
             response in
         
-            self.parseData(jsonData: response.data!)
+            self.parseData(JSONData: response.data!)
             
         }
         
     }
 
-    func parseData(jsonData: Data) {
+    func parseData(JSONData: Data) {
         do {
-            var readableJSON = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as! JSONStandard
+            var readableJSON = try JSONSerialization.jsonObject(with: JSONData, options: .mutableContainers) as! JSONStandard
             print(readableJSON)
+            
+            if let tracks = readableJSON["tracks"] as? JSONStandard {
+                if let items = tracks["items"] {
+
+                    for i in 0..<items.count {
+                        
+                        let item = items[i] as! JSONStandard
+                        let names = item["name"] as! String
+                        
+                        self.trackTitle.append(names)
+                        
+                    }
+                }
+                
+            }
+            
         }
         catch {
             print(error)
