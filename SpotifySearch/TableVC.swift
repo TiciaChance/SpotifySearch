@@ -83,7 +83,12 @@ class TableVC: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         
-        //cell?.textLabel?.text = post[indexPath.row]
+        let mainImageView = cell?.viewWithTag(2) as! UIImageView
+        mainImageView.image = posts[indexPath.row].image
+        
+        let mainLabel = cell?.viewWithTag(1) as! UILabel
+        mainLabel.text = posts[indexPath.row].name
+        
         
         return cell!
     }
