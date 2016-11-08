@@ -48,15 +48,18 @@ class TableVC: UITableViewController {
                     
                     let names = item?["name"]?.stringValue
                     
-                    print(trackTitle)
-                    //print(names as Any)
-                    
                     self.trackTitle.append(names!)
                     
                     if let album = item?["album"] {
                         
                         let images = album["images"]
                         let imageData = images[0]
+                        
+                        let mainImageURL = URL(string: imageData["url"].stringValue)
+                        let mainImageData = NSData(contentsOf: mainImageURL!)
+                
+                        let mainIMG = UIImage(data: mainImageData! as Data)
+                        
                         
                         self.tableView.reloadData()
                         
