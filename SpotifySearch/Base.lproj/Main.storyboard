@@ -65,10 +65,10 @@
             </objects>
             <point key="canvasLocation" x="1255.2" y="280.20989505247377"/>
         </scene>
-        <!--View Controller-->
+        <!--AudioVC-->
         <scene sceneID="EnI-0j-jac">
             <objects>
-                <viewController id="kx7-mu-xOn" sceneMemberID="viewController">
+                <viewController id="kx7-mu-xOn" customClass="AudioVC" customModule="SpotifySearch" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="R1t-Q6-ywp"/>
                         <viewControllerLayoutGuide type="bottom" id="hzS-Bj-YE0"/>
@@ -92,18 +92,23 @@
                                                 <constraint firstAttribute="width" secondItem="Pjd-oz-iEa" secondAttribute="height" multiplier="1:1" id="nIw-J6-gsT"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MjR-FC-Ve0">
-                                            <rect key="frame" x="100" y="391" width="174" height="36"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="jdnfjmfmdfs m v mvmdmsmvdmvmd,f" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MjR-FC-Ve0">
+                                            <rect key="frame" x="67" y="391" width="240" height="73"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="73" id="E4b-6t-Xe7"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Pjd-oz-iEa" firstAttribute="top" secondItem="3dO-sW-xzk" secondAttribute="top" constant="125" id="17k-sn-dwE"/>
                                         <constraint firstAttribute="trailing" secondItem="Pjd-oz-iEa" secondAttribute="trailing" constant="68" id="18t-KJ-rNn"/>
+                                        <constraint firstItem="MjR-FC-Ve0" firstAttribute="top" secondItem="Pjd-oz-iEa" secondAttribute="bottom" constant="26" id="2sl-fY-GWe"/>
+                                        <constraint firstItem="MjR-FC-Ve0" firstAttribute="leading" secondItem="3dO-sW-xzk" secondAttribute="leading" constant="67" id="Sqg-5N-hqd"/>
                                         <constraint firstItem="Pjd-oz-iEa" firstAttribute="leading" secondItem="3dO-sW-xzk" secondAttribute="leading" constant="67" id="aVI-OA-Y35"/>
+                                        <constraint firstAttribute="trailing" secondItem="MjR-FC-Ve0" secondAttribute="trailing" constant="68" id="ukk-dW-mCf"/>
                                     </constraints>
                                 </view>
                                 <blurEffect style="light"/>

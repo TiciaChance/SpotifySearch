@@ -12,6 +12,7 @@
 		11497F861DCF868800B3B696 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11497F841DCF868800B3B696 /* Main.storyboard */; };
 		11497F881DCF868800B3B696 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11497F871DCF868800B3B696 /* Assets.xcassets */; };
 		11497F8B1DCF868800B3B696 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11497F891DCF868800B3B696 /* LaunchScreen.storyboard */; };
+		11D352991DD25D2F00935272 /* AudioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D352981DD25D2F00935272 /* AudioVC.swift */; };
 		447143DCA6FE7AFB5B9623A0 /* Pods_SpotifySearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CB6ECA046796B11E8B8DBEA /* Pods_SpotifySearch.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,7 @@
 		11497F871DCF868800B3B696 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11497F8A1DCF868800B3B696 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		11497F8C1DCF868800B3B696 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11D352981DD25D2F00935272 /* AudioVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioVC.swift; sourceTree = "<group>"; };
 		6C6D31889A23172F4AFD5894 /* Pods-SpotifySearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotifySearch.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpotifySearch/Pods-SpotifySearch.release.xcconfig"; sourceTree = "<group>"; };
 		8CB6ECA046796B11E8B8DBEA /* Pods_SpotifySearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpotifySearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7D025C800E3ACDEA62F689D /* Pods-SpotifySearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotifySearch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpotifySearch/Pods-SpotifySearch.debug.xcconfig"; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 				11497F801DCF868800B3B696 /* AppDelegate.swift */,
 				11497F821DCF868800B3B696 /* TableVC.swift */,
 				11497F841DCF868800B3B696 /* Main.storyboard */,
+				11D352981DD25D2F00935272 /* AudioVC.swift */,
 				11497F871DCF868800B3B696 /* Assets.xcassets */,
 				11497F891DCF868800B3B696 /* LaunchScreen.storyboard */,
 				11497F8C1DCF868800B3B696 /* Info.plist */,
@@ -214,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11497F831DCF868800B3B696 /* TableVC.swift in Sources */,
+				11D352991DD25D2F00935272 /* AudioVC.swift in Sources */,
 				11497F811DCF868800B3B696 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
