@@ -10,11 +10,16 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
+struct post {
+    let image : UIImage!
+    let name : String!
+    
+}
 
 class TableVC: UITableViewController {
     
     let searchURL = "https://api.spotify.com/v1/search?q=Solange&type=track&offset=20"
-    var trackTitle = [String]()
+    var posts = [post]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,9 +51,8 @@ class TableVC: UITableViewController {
                 for i in 0..<items.count {
                     let item = items[i].dictionary
                     
-                    let names = item?["name"]?.stringValue
-                    
-                    self.trackTitle.append(names!)
+                    let name = item?["name"]?.stringValue
+
                     
                     if let album = item?["album"] {
                         
@@ -60,7 +64,7 @@ class TableVC: UITableViewController {
                 
                         let mainIMG = UIImage(data: mainImageData! as Data)
                         
-                        
+                        self.posts.append(post.init(image: mainIMG, name: name))
                         self.tableView.reloadData()
                         
                     }
@@ -72,14 +76,14 @@ class TableVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return trackTitle.count
+        return posts.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         
-        cell?.textLabel?.text = trackTitle[indexPath.row]
+        //cell?.textLabel?.text = post[indexPath.row]
         
         return cell!
     }
