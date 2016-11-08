@@ -11,7 +11,16 @@ import UIKit
 
 class AudioVC : UIViewController {
     
+    @IBOutlet weak var mainIMG: UIImageView!
+    @IBOutlet weak var backgroundIMG: UIImageView!
+    @IBOutlet weak var songTitle: UILabel!
+    
+    var image = UIImage()
+    var songTitleText = String()
+    
     override func viewDidLoad() {
-        <#code#>
+        songTitle.text = songTitleText
+        backgroundIMG.image = image
+        mainIMG.image = image
     }
 }

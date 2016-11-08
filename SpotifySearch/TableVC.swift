@@ -92,6 +92,18 @@ class TableVC: UITableViewController {
         
         return cell!
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let indexPath = self.tableView.indexPathForSelectedRow?.row
+        
+        let VC = segue.destination as! AudioVC
+        
+        VC.image = posts[indexPath!].image
+        VC.songTitleText = posts[indexPath!].name
+        
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
