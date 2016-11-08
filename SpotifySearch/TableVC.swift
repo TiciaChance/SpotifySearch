@@ -8,16 +8,13 @@
 
 import UIKit
 import Alamofire
-//import SwiftyJSON
+import SwiftyJSON
 
 
 class TableVC: UITableViewController {
     
     let searchURL = "https://api.spotify.com/v1/search?q=Solange&type=track&offset=20"
     var trackTitle = [String]()
-    
-    typealias JSONStandard = [String : AnyObject]
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +27,9 @@ class TableVC: UITableViewController {
         Alamofire.request(url).responseJSON {
             response in
             
+            //print(response.result.value!)
+            
+            
             self.parseData(JSONData: response.data!)
             
         }
@@ -37,31 +37,35 @@ class TableVC: UITableViewController {
     }
     
     func parseData(JSONData: Data) {
-        do {
-            var readableJSON = try JSONSerialization.jsonObject(with: JSONData, options: .mutableContainers) as! JSONStandard
-            print(readableJSON)
-            
-            if let tracks = readableJSON["tracks"] as? JSONStandard {
-                if let items = tracks["items"] {
+        
+        guard let jsonObject = JSON(data: JSONData).dictionary else {return}
+        
+        if let tracks = jsonObject["tracks"]?.dictionary {
+            if let items = tracks["items"]?.array {
+                
+                for i in 0..<items.count {
+                    let item = items[i].dictionary
                     
-                    for i in 0..<items.count {
+                    let names = item?["name"]?.stringValue
+                    
+                    print(trackTitle)
+                    //print(names as Any)
+                    
+                    self.trackTitle.append(names!)
+                    
+                    if let album = item?["album"] {
                         
-                        let item = items[i] as! JSONStandard
-                        let names = item["name"] as! String
-                        
-                        self.trackTitle.append(names)
+                        let images = album["images"]
+                        let imageData = images[0]
                         
                         self.tableView.reloadData()
                         
                     }
+                    
                 }
-                
             }
-            
         }
-        catch {
-            print(error)
-        }
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -69,7 +73,7 @@ class TableVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         
         cell?.textLabel?.text = trackTitle[indexPath.row]
