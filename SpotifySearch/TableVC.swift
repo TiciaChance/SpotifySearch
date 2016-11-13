@@ -19,15 +19,32 @@ struct post {
     let previewurl: String!
 }
 
-class TableVC: UITableViewController {
+class TableVC: UITableViewController, UISearchBarDelegate {
     
-    let searchURL = "https://api.spotify.com/v1/search?q=Solange&type=track&offset=20"
+//    var searchURL = "https://api.spotify.com/v1/search?q=Solange&type=track&offset=20"
+    var searchURL = String()
+
     var posts = [post]()
     
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
+        let keywords = searchBar.text
+        
+        //if (keywords?.contains(" "))! {
+           let finalKeywords = keywords?.replacingOccurrences(of: " ", with: "+")
+
+        //}
+        
+        searchURL = "https://api.spotify.com/v1/search?q=\(finalKeywords!)&type=track&offset=20"
+        callAPI(url: searchURL)
+
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        callAPI(url: searchURL)
+       // callAPI(url: searchURL)
     }
     
     func callAPI(url: String) {
