@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import AVFoundation
 
 class AudioVC : UIViewController {
     
@@ -20,8 +21,26 @@ class AudioVC : UIViewController {
     var mainPreviewURL = String()
     
     override func viewDidLoad() {
+        
         songTitle.text = songTitleText
         backgroundIMG.image = image
         mainIMG.image = image
+        
     }
+    
+    func play(url : URL) {
+        
+        do {
+            player = try AVAudioPlayer(contentsOf: url)
+            player.prepareToPlay()
+            player.play()
+        } catch {
+            
+            print(error)
+        }
+        
+    }
+    
+    
+
 }

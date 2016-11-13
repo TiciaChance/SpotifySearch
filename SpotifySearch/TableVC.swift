@@ -9,6 +9,9 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import AVFoundation
+
+var player = AVAudioPlayer()
 
 struct post {
     let image : UIImage!
