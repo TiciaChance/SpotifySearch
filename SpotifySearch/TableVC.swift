@@ -13,7 +13,7 @@ import SwiftyJSON
 struct post {
     let image : UIImage!
     let name : String!
-    
+    let previewurl: String!
 }
 
 class TableVC: UITableViewController {
@@ -52,7 +52,8 @@ class TableVC: UITableViewController {
                     let item = items[i].dictionary
                     
                     let name = item?["name"]?.stringValue
-
+                    let previewURL = item?["preview_url"]?.stringValue
+                    
                     
                     if let album = item?["album"] {
                         
@@ -64,7 +65,7 @@ class TableVC: UITableViewController {
                 
                         let mainIMG = UIImage(data: mainImageData! as Data)
                         
-                        self.posts.append(post.init(image: mainIMG, name: name))
+                        self.posts.append(post.init(image: mainIMG, name: name, previewurl: previewURL))
                         self.tableView.reloadData()
                         
                     }
@@ -100,6 +101,7 @@ class TableVC: UITableViewController {
         
         VC.image = posts[indexPath!].image
         VC.songTitleText = posts[indexPath!].name
+        VC.mainPreviewURL = posts[indexPath!].previewurl
         
     }
     

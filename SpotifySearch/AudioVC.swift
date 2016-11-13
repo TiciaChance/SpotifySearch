@@ -17,6 +17,7 @@ class AudioVC : UIViewController {
     
     var image = UIImage()
     var songTitleText = String()
+    var mainPreviewURL = String()
     
     override func viewDidLoad() {
         songTitle.text = songTitleText
