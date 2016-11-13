@@ -26,6 +26,8 @@ class AudioVC : UIViewController {
         backgroundIMG.image = image
         mainIMG.image = image
         
+        downloadFileFromURL(url: URL(string: mainPreviewURL)!)
+        
     }
     
     func play(url : URL) {
@@ -41,6 +43,14 @@ class AudioVC : UIViewController {
         
     }
     
-    
+    func downloadFileFromURL(url: URL) {
+        
+        var downloadTask = URLSessionDownloadTask()
+        downloadTask = URLSession.shared.downloadTask(with: url, completionHandler: { customURL, response, error in
+            
+            self.play(url: customURL!)
+        })
+        downloadTask.resume()
+    }
 
 }
