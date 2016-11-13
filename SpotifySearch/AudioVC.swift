@@ -20,11 +20,14 @@ class AudioVC : UIViewController {
     var songTitleText = String()
     var mainPreviewURL = String()
     
+    @IBOutlet weak var playPAUSEbutton: UIButton!
+    
     override func viewDidLoad() {
         
         songTitle.text = songTitleText
         backgroundIMG.image = image
         mainIMG.image = image
+        playPAUSEbutton.setTitle("Pause", for: .normal)
         
         downloadFileFromURL(url: URL(string: mainPreviewURL)!)
         
@@ -53,4 +56,14 @@ class AudioVC : UIViewController {
         downloadTask.resume()
     }
 
+    @IBAction func PauseButton(_ sender: Any) {
+        
+        if player.isPlaying {
+            player.pause()
+            playPAUSEbutton.setTitle("Play", for: .normal)
+        } else {
+            player.play()
+            playPAUSEbutton.setTitle("Pause", for: .normal)
+        }
+    }
 }

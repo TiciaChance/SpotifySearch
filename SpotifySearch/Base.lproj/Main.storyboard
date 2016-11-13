@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="w6f-b3-ZPr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="w6f-b3-ZPr">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -24,7 +24,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="134"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zQT-Zb-cDw" id="SdH-HO-mLU">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="133"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="134"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Awk-CU-1Qp">
@@ -101,13 +101,23 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOM-3i-9Ae">
+                                            <rect key="frame" x="164" y="547" width="46" height="30"/>
+                                            <state key="normal" title="Button"/>
+                                            <connections>
+                                                <action selector="PauseButton:" destination="kx7-mu-xOn" eventType="touchUpInside" id="e8z-gx-JSB"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Pjd-oz-iEa" firstAttribute="top" secondItem="3dO-sW-xzk" secondAttribute="top" constant="125" id="17k-sn-dwE"/>
                                         <constraint firstAttribute="trailing" secondItem="Pjd-oz-iEa" secondAttribute="trailing" constant="68" id="18t-KJ-rNn"/>
                                         <constraint firstItem="MjR-FC-Ve0" firstAttribute="top" secondItem="Pjd-oz-iEa" secondAttribute="bottom" constant="26" id="2sl-fY-GWe"/>
+                                        <constraint firstItem="YOM-3i-9Ae" firstAttribute="top" secondItem="MjR-FC-Ve0" secondAttribute="bottom" constant="83" id="Ed9-sc-Gb6"/>
                                         <constraint firstItem="MjR-FC-Ve0" firstAttribute="leading" secondItem="3dO-sW-xzk" secondAttribute="leading" constant="67" id="Sqg-5N-hqd"/>
                                         <constraint firstItem="Pjd-oz-iEa" firstAttribute="leading" secondItem="3dO-sW-xzk" secondAttribute="leading" constant="67" id="aVI-OA-Y35"/>
+                                        <constraint firstAttribute="bottom" secondItem="YOM-3i-9Ae" secondAttribute="bottom" constant="90" id="etl-QC-wMP"/>
+                                        <constraint firstItem="YOM-3i-9Ae" firstAttribute="leading" secondItem="3dO-sW-xzk" secondAttribute="leading" constant="164" id="lu8-PE-2Qb"/>
                                         <constraint firstAttribute="trailing" secondItem="MjR-FC-Ve0" secondAttribute="trailing" constant="68" id="ukk-dW-mCf"/>
                                     </constraints>
                                 </view>
@@ -130,6 +140,7 @@
                     <connections>
                         <outlet property="backgroundIMG" destination="Zxq-xA-MUM" id="Xv5-zt-yPk"/>
                         <outlet property="mainIMG" destination="Pjd-oz-iEa" id="sAh-k6-nZS"/>
+                        <outlet property="playPAUSEbutton" destination="YOM-3i-9Ae" id="I1j-36-au7"/>
                         <outlet property="songTitle" destination="MjR-FC-Ve0" id="30M-Rf-GJs"/>
                     </connections>
                 </viewController>
